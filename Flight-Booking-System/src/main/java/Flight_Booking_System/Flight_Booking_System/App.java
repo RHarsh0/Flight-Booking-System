@@ -5,12 +5,10 @@ import jakarta.persistence.Persistence;
 
 public class App 
 {
-    static EntityManagerFactory emf = null;
+    public static EntityManagerFactory emf = null;
     
     static {
     	emf = Persistence.createEntityManagerFactory("Project");
     }
-    public static void main(String[] args) {
-		
-	}
+    
 }

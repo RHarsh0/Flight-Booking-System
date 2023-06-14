@@ -2,6 +2,8 @@ package entity;
 
 import java.util.Set;
 
+//import enums.Gender;
+//import enums.Kota;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,17 +22,22 @@ public class Customer {
 	private int CustomerId;
 	private String Name;
 	private int Age;
-	enum Gender{FEMALE,MALE}
-	enum Kota{STUDENT,DISABILITY}
+	public enum Gender{FEMALE,MALE}
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "VARCHAR(255)")
 	private Gender gender;
+	
 	private String Nationality;
+	public enum Kota{STUDENT,DISABILITY,NONE}
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "VARCHAR(255)")
 	private Kota kota;
+	@Column(unique=true)
+	private String Username;
+	private String Password;
 	@OneToMany(mappedBy = "customer")
 	private Set<Booking> booking;
+	
 	@OneToMany(mappedBy = "customer")
 	private Set<CancelBooking> cancel;
 	
@@ -39,24 +46,45 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Customer(String name, int age, Gender gender, String nationality, Kota kota,
-			Set<Booking> booking, Set<CancelBooking> cancel) {
+
+	public Customer(String name, int age, Gender gender, String nationality, Kota kota, String username,
+			String password, Set<Booking> booking, Set<CancelBooking> cancel) {
 		super();
 		Name = name;
 		Age = age;
 		this.gender = gender;
 		Nationality = nationality;
 		this.kota = kota;
+		Username = username;
+		Password = password;
 		this.booking = booking;
 		this.cancel = cancel;
 	}
 
-	
+
+
+	public int getCustomerId() {
+		return CustomerId;
+	}
+
+
+
+
+
+	public void setCustomerId(int customerId) {
+		CustomerId = customerId;
+	}
+
+
+
+
 
 	public String getName() {
 		return Name;
 	}
+
+
+
 
 
 	public void setName(String name) {
@@ -64,19 +92,23 @@ public class Customer {
 	}
 
 
+
+
+
 	public int getAge() {
 		return Age;
 	}
 
 
-	public int getCustomerId() {
-		return CustomerId;
-	}
-	
-	
+
+
+
 	public void setAge(int age) {
 		Age = age;
 	}
+
+
+
 
 
 	public Gender getGender() {
@@ -84,9 +116,15 @@ public class Customer {
 	}
 
 
+
+
+
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+
+
+
 
 
 	public String getNationality() {
@@ -94,9 +132,15 @@ public class Customer {
 	}
 
 
+
+
+
 	public void setNationality(String nationality) {
 		Nationality = nationality;
 	}
+
+
+
 
 
 	public Kota getKota() {
@@ -104,9 +148,47 @@ public class Customer {
 	}
 
 
+
+
+
 	public void setKota(Kota kota) {
 		this.kota = kota;
 	}
+
+
+
+
+
+	public String getUsername() {
+		return Username;
+	}
+
+
+
+
+
+	public void setUsername(String username) {
+		Username = username;
+	}
+
+
+
+
+
+	public String getPassword() {
+		return Password;
+	}
+
+
+
+
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+
+
 
 
 	public Set<Booking> getBooking() {
@@ -114,9 +196,15 @@ public class Customer {
 	}
 
 
+
+
+
 	public void setBooking(Set<Booking> booking) {
 		this.booking = booking;
 	}
+
+
+
 
 
 	public Set<CancelBooking> getCancel() {
@@ -124,9 +212,15 @@ public class Customer {
 	}
 
 
+
+
+
 	public void setCancel(Set<CancelBooking> cancel) {
 		this.cancel = cancel;
 	}
+
+
+
 
 
 	@Override
@@ -135,7 +229,7 @@ public class Customer {
 		return "CustomerId=" + CustomerId +"\n"+ 
 		        "gender=" + gender+"\n"+
                "Name=" + Name + "\n"+
-               ", kota=" + kota+ "\n"+
+               "kota=" + kota+ "\n"+
 		       "Age=" + Age + "\n"+
                "Nationality=" + Nationality;
 	}
