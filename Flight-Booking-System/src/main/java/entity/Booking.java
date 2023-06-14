@@ -46,9 +46,11 @@ public class Booking {
 	@Override
 	public String toString() {
 		return "BookingId=" + BookingId + "\n"+
-	           "customer=" + customer + "\n"+
-				", flight=" + flight ;
+	           "customer ->" + "\n"+ customer.toString() + "\n"+
+				"flight ->" +  "\n"+ flight.toString() +"\n";
+	           
 	}
+	
 	
 	
 }
