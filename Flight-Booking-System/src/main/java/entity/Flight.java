@@ -32,12 +32,12 @@ public class Flight {
 
 	@Override
 	public String toString() {
-		return "Flight_number=" + FlightNumber + "\n"+
-		           "Arrival=" + Arrival + "\n"+
-				   "Departure=" + Departure+ "\n" +
-				   "price=" + price  +"\n"+ 
-				   "DepartureCity=" + DepartureCity +"\n"+
-				   "ArrivalCity=" + ArrivalCity ;
+		return 
+				"    "+FlightNumber +"   "+ "      "+   Arrival +"  "+ "  "+ 
+				    Departure+"   "+"   " +
+				    price  +"   "+"    "+ 
+				    DepartureCity +"   "+"       "+
+				   ArrivalCity+"\n" ;
 	}
 
 	public Flight(String flightNumber, LocalDateTime arrival, LocalDateTime departure, double price,

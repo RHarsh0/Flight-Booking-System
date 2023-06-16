@@ -93,6 +93,7 @@ public class CustomerSecondaryUI {
 		double higher = sc.nextDouble();
 		try {
 			ICustomerService ics = new CustomerServiceImpl();
+			
 			ics.byPrice(lower,higher);
 		}catch(NoFlightsFound ex) {
 			System.out.println(ex);
