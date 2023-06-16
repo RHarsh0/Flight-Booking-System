@@ -24,6 +24,7 @@ public class Flight {
 	private Set<Booking> booking;
 	@OneToMany(mappedBy = "flight")
 	private Set<CancelBooking> cancel;
+	private boolean view;
 	public Flight() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -37,7 +38,7 @@ public class Flight {
 				    Departure+"   "+"   " +
 				    price  +"   "+"    "+ 
 				    DepartureCity +"   "+"       "+
-				   ArrivalCity+"\n" ;
+				   ArrivalCity+"     "+view+"\n" ;
 	}
 
 	public Flight(String flightNumber, LocalDateTime arrival, LocalDateTime departure, double price,
@@ -51,6 +52,7 @@ public class Flight {
 		ArrivalCity = arrivalCity;
 		this.booking = booking;
 		this.cancel = cancel;
+		this.view = true;
 	}
 
 
@@ -131,6 +133,16 @@ public class Flight {
 
 	public void setCancel(Set<CancelBooking> cancel) {
 		this.cancel = cancel;
+	}
+
+
+	public boolean isView() {
+		return view;
+	}
+
+
+	public void setView(boolean view) {
+		this.view = view;
 	}
 
 	

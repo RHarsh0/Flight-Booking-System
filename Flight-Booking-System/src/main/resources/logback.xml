@@ -1,0 +1,7 @@
+<configuration>
+  <!-- Other configurations -->
+
+  <logger name="org.hibernate" level="WARN" />
+
+  <!-- Other loggers and appenders -->
+</configuration>

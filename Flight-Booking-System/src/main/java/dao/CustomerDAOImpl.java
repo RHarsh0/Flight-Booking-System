@@ -239,10 +239,10 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			et = em.getTransaction();
 			et.begin();
 			Booking booking = em.find(Booking.class, bookingId);
-			Flight flight = em.find(Flight.class, booking.getFlight());
+			Flight flight = em.find(Flight.class, booking.getFlight().getFlightNumber());
+			em.remove(booking);
 			flight.getBooking().remove(booking);
 			customer.getBooking().remove(booking);
-			em.remove(booking);
 			CancelBooking canceled = new CancelBooking(bookingId,customer,flight);
 			em.persist(canceled);
 			et.commit();

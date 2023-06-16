@@ -41,6 +41,7 @@ public class Customer {
 	@OneToMany(mappedBy = "customer")
 	private Set<CancelBooking> cancel;
 	
+	private boolean view;
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,6 +60,7 @@ public class Customer {
 		Password = password;
 		this.booking = booking;
 		this.cancel = cancel;
+		this.view = true;
 	}
 
 
@@ -223,17 +225,27 @@ public class Customer {
 
 
 
+	public boolean isView() {
+		return view;
+	}
+
+
+	public void setView(boolean view) {
+		this.view = view;
+	}
+
+
 	@Override
 	public String toString() {
 		
 		return 
-				CustomerId +"          "+gender+"    "+Name + "    "+kota+ "    "+Age + "       "+Nationality+"\n";
+				"     "+CustomerId +"        "+gender+"    "+Name + "    "+kota+ "    "+Age + "       "+Nationality+"            "+ view +"\n";
 	}
 	
 public String toSpecialString() {
 		
 		return 
-				"               "+CustomerId +"         "+gender+"      "+Name + "   "+kota+ "     "+Age + "      "+Nationality+"         ";
+				"               "+CustomerId +"         "+gender+"      "+Name + "   "+kota+ "     "+Age + "      "+Nationality+"         " + view;
 	}
 	
 
