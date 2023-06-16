@@ -40,8 +40,23 @@ public class AdminServiceImpl implements IAdminService{
 	}
 
 	@Override
-	public void generateFlightDetails() {
-		// TODO Auto-generated method stub
+	public void viewFlights() throws NoFlightsFound{
+		IAdminDAO viewAllFlight = new AdminDAOImpl();
+		viewAllFlight.viewFlights();
+		
+	}
+
+	@Override
+	public void viewCustomers() {
+		IAdminDAO viewAllCustomer = new AdminDAOImpl();
+		viewAllCustomer.viewCustomers();
+		
+	}
+
+	@Override
+	public void viewBookings() {
+		IAdminDAO viewAllBookings = new AdminDAOImpl();
+		viewAllBookings.viewBookings();
 		
 	}
 

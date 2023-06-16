@@ -32,6 +32,14 @@
     <version>6.2.4.Final</version>
 </dependency>
 
+  <!-- Logback logging framework -->
+  <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+  </dependency>
+
+
   </dependencies>
 
   <build>

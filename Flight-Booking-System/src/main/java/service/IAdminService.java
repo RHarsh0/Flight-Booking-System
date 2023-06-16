@@ -12,5 +12,7 @@ public interface IAdminService {
 	 public void addNewFlight(Flight flight);
 	 public void updateFlightDetails(String flightNumber, LocalDateTime arrival, LocalDateTime departure, double price) throws NoFlightsFound;
 	 public void removeFlight(String flightNumber)throws NoFlightsFound;
-	 public void generateFlightDetails();
+	 public void viewFlights() throws NoFlightsFound;
+	public void viewCustomers();
+	public void viewBookings();
 }
