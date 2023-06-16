@@ -2,6 +2,7 @@ package dao;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import Flight_Booking_System.Flight_Booking_System.App;
 import entity.Booking;
@@ -47,13 +48,18 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			Query query = em.createQuery("SELECT f FROM Flight f WHERE f.DepartureCity=:city");
 			query.setParameter("city", city);
 			List<Flight> list = (List<Flight>)query.getResultList();
-			if(!list.isEmpty())
+			if(!list.isEmpty()) {
+				System.out.println();
+				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				System.out.println(" Flight_number   " +"     Arrival     "+"       Departure   " +"       price   " +"   DepartureCity   " + "   ArrivalCity   " +  "\n");
 			for(Flight flight : list) {
-				System.out.println(list.toString());
-			}else {
+				System.out.println(flight.toString());
+			}}else {
 				throw new NoFlightsFound("No flights are scheduled to take off from " + city + " for now please check later");
 			}
 			et.commit();
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
 		}catch(Exception ex) {
 			et.rollback();
 			ex.printStackTrace();
@@ -74,12 +80,16 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			Query query = em.createQuery("SELECT f FROM Flight f WHERE f.ArrivalCity=:city");
 			query.setParameter("city", city);
 			List<Flight> list = (List<Flight>)query.getResultList();
-			if(!list.isEmpty())
+			if(!list.isEmpty()) {System.out.println();
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(" Flight_number   " +"     Arrival     "+"       Departure   " +"       price   " +"   DepartureCity   " + "   ArrivalCity   " +  "\n");
 			for(Flight flight : list) {
-				System.out.println(list.toString());
-			}else {
+				System.out.println(flight.toString());
+			}}else {
 				throw new NoFlightsFound("No flights are scheduled to go to " + city + " for now... Please check later");
 			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
 			et.commit();
 		}catch(Exception ex) {
 			et.rollback();
@@ -101,12 +111,18 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			Query query = em.createQuery("SELECT f FROM Flight f WHERE DATE(f.Departure)=:date");
 			query.setParameter("date", date);
 			List<Flight> list = (List<Flight>)query.getResultList();
-			if(!list.isEmpty())
+			if(!list.isEmpty()) {
+				System.out.println();
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(" Flight_number   " +"     Arrival     "+"       Departure   " +"       price   " +"   DepartureCity   " + "   ArrivalCity   " +  "\n");
+		
 			for(Flight flight : list) {
-				System.out.println(list.toString());
-			}else {
+				System.out.println(flight.toString());
+			}}else {
 				throw new NoFlightsFound("No flights are scheduled to take of on " + date + " for now... Please check later");
 			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
 			et.commit();
 		}catch(Exception ex) {
 			et.rollback();
@@ -130,12 +146,17 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			query.setParameter("lower",lower );
 			query.setParameter("higher", higher);
 			List<Flight> list = (List<Flight>)query.getResultList();
-			if(!list.isEmpty())
+			if(!list.isEmpty()) {
+				System.out.println();
+				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				System.out.println(" Flight_number   " +"     Arrival     "+"       Departure   " +"       price   " +"   DepartureCity   " + "   ArrivalCity   " +  "\n");
 			for(Flight flight : list) {
-				System.out.println(list.toString());
-			}else {
+				System.out.println(flight.toString());
+			}}else {
 				throw new NoFlightsFound("No flights are scheduled within the price range of " + lower+" and "+ higher +" for now... Please check later");
 			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
 			et.commit();
 		}catch(Exception ex) {
 			et.rollback();
@@ -156,7 +177,12 @@ public class CustomerDAOImpl implements ICustomerDAO{
 			et.begin();
 			Query query = em.createQuery("SELECT f FROM Flight f");
 			List<Flight> list = query.getResultList();
+			System.out.println();
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(" Flight_number   "  +  "\n");
 			list.stream().filter(i->i.getBooking().size()<=100-seats).forEach(i->System.out.println(i.getFlightNumber()));
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
 		}catch(Exception ex) {
 			et.rollback();
 			ex.printStackTrace();
@@ -191,9 +217,16 @@ public class CustomerDAOImpl implements ICustomerDAO{
 
 	@Override
 	public void viewAllYourBooking(Customer customer) {
-		for(Booking booking : customer.getBooking()) {
+		System.out.println();
+		Set<Booking> list = customer.getBooking();
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println();
+		System.out.println("BookingId  " + "  CustomerId  " +"  gender  " +"  Name  " + "  kota  " + "  Age  " + "  Nationality  " +  "    "+" Flight_number   " +"     Arrival     "+"       Departure   " +"       price   " +"   DepartureCity   " + "   ArrivalCity   " +  "\n");
+		for(Booking booking : list) {
 			System.out.println(booking.toString());
 		}
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println();
 		
 	}
 

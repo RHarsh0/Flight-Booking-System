@@ -66,10 +66,8 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "AdminId=" + AdminId + "\n"+
-	           "EmployeeId=" + EmployeeId + "\n"+
-				"Name=" + Name + "\n"+
-	           "Position=" + Position+"\n";
+		return "   AdminId   " + "   EmployeeId   " +"   Name   " +"   Position   " +
+	           "  "+AdminId+"   " + "   "+EmployeeId +"   "+"   " +Name +"   "+ "   "+Position+"   "+"\n";
 	}
 	
 	

@@ -226,12 +226,14 @@ public class Customer {
 	@Override
 	public String toString() {
 		
-		return "CustomerId=" + CustomerId +"\n"+ 
-		        "gender=" + gender+"\n"+
-               "Name=" + Name + "\n"+
-               "kota=" + kota+ "\n"+
-		       "Age=" + Age + "\n"+
-               "Nationality=" + Nationality;
+		return 
+				CustomerId +"          "+gender+"    "+Name + "    "+kota+ "    "+Age + "       "+Nationality+"\n";
+	}
+	
+public String toSpecialString() {
+		
+		return 
+				"               "+CustomerId +"         "+gender+"      "+Name + "   "+kota+ "     "+Age + "      "+Nationality+"         ";
 	}
 	
 

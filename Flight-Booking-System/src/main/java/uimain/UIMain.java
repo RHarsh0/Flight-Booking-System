@@ -94,15 +94,16 @@ public class UIMain {
 		Scanner sc = new Scanner(System.in);
 		int choice;
 		do {
-			System.out.println("Welcome Sir would you login please");
+			System.out.println("  Welcome Sir would you login please");
 			AdminLogin.adminLogin();
-	        System.out.println("Thanks for maintainence. What do you want to change...");
-	        System.out.println("1.Do you want to register a new admin");
-	        System.out.println("2.Add a new Flight");
-	        System.out.println("3.Change a flight details");
-	        System.out.println("4.Remove a flight");
-	        System.out.println("5.Genereate a report");
-	        System.out.println("0.Logout");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ADMIN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	        System.out.println("  Thanks for maintainence. What do you want to change...");
+	        System.out.println("    1.Do you want to register a new admin");
+	        System.out.println("    2.Add a new Flight");
+	        System.out.println("    3.Change a flight details");
+	        System.out.println("    4.Remove a flight");
+	        System.out.println("    5.Genereate a report");
+	        System.out.println("    0.Logout");
 	        choice = sc.nextInt();
 	        switch(choice) {
 	        case 1:AdminSecondaryUI.registerAdmin(sc);
@@ -135,9 +136,13 @@ public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 	int choice;
 	do {
-		System.out.println("Welcome to Fly Trip Travel. You are...");
-		System.out.println("1. Admin");
-		System.out.println("2. Customer");
+		System.out.println();
+		System.out.println("====================================Flight Booking System===================================");
+		System.out.println("  Welcome to Fly Trip Travel. You are...");
+		System.out.println();
+		System.out.println("    1. Admin");
+		System.out.println();
+		System.out.println("    2. Customer");
 		choice = sc.nextInt();
 		switch(choice) {
 		case 1: youAreAdmin();
