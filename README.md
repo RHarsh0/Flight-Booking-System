@@ -34,6 +34,10 @@ This is the fight booking application used to book the flight customer. It also 
 - Cancel your Booking
 - Logout
 
+## Schema
+
+![drawSQL-schema-flight-booking-system](https://github.com/RHarsh0/mute-death-5036/assets/119388397/8330d1d3-db60-4226-98da-6630594c3aa9)
+
 ## Database
 
 ### All Tables
