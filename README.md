@@ -12,6 +12,28 @@ This is the fight booking application used to book the flight customer. It also 
 ## Workflow Diagram
 ![Flight_Booking_System workflow diagram](https://github.com/RHarsh0/mute-death-5036/assets/119388397/ef0a08ce-8db1-4049-9544-2d3b6662d786)
 
+## Features
+## Admin
+- Register the name
+- Add a new flight
+- Update the flight
+- Delete the flight
+- View all the flight
+- View all the Customer
+- View all the bookings
+- View all the Canceled bookings
+
+## Customers
+- Filter by Departure City
+- Filter by Destination
+- Filter by dates
+- Filter by price
+- Filter by seats
+- Select to book your flight
+- View Your Bookings
+- Cancel your Booking
+- Logout
+
 ## Database
 
 ### All Tables
