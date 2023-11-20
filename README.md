@@ -40,7 +40,7 @@ This is the fight booking application used to book the flight customer. It also 
 
 ## Database
 
-### All Tables
+### Tables
 ![AllTables](https://github.com/RHarsh0/mute-death-5036/assets/119388397/732f4bf1-725f-42d8-b140-cee913228a3a)
 
 ### Admin Table
